@@ -1,0 +1,30 @@
+{{/* Put your custom <script></script> tags here */}}
+
+{{/* EXAMPLE - only load script for production
+{{ if eq (hugo.Environment) "production" -}}
+  {{ partial "footer/esbuild" (dict "src" "js/instantpage.js" "load" "async" "transpile" false) -}}
+{{ end -}}
+*/}}
+
+{{/* EXAMPLE - only load script for a page type e.g. contact or gallery
+{{ if eq .Type "gallery" -}}
+  {{ partial "footer/esbuild" (dict "src" "js/gallery.js" "load" "async" "transpile" false) -}}
+{{ end -}}
+*/}}
+{{ if .Store.Get "hasMermaid" }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+{{ end }}
+	
+<!-- MailerLite Universal -->
+
+<script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '933245');
+</script>
+<!-- End MailerLite Universal -->
